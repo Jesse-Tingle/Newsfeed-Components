@@ -160,23 +160,6 @@ let articles = document.querySelector('.articles')
 //console.log(articles);
 
 data.forEach((element) => {
-  articles.appendChild(createArticle(element.title, element.date, element.firstParagraph, element.secondPelement, element.thirdPelement));
+  articles.appendChild(createArticle(element.title, element.date, element.firstParagraph, element.secondParagraph, element.thirdParagraph));
 
 })
-
-
-
-
-
-// function creatH2(element) {
-//   let title = document.createElement('h2');
-//   title.textContent = element;
-
-//   return title;
-// }
-
-// let articles = document.querySelector('.articles')
-
-// data.forEach((element1) => {
-//   articles.appendChild(creatH2(element1.title))
-// })
