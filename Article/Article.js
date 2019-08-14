@@ -112,3 +112,38 @@ const data = [
   Step 5: Add a new article to the array. Make sure it is in the same format as the others. Refresh the page to see the new artible
 
 */
+
+function createArticle(h2element) {
+  let div = document.createElement('div');
+  div.classList.add('article');
+  let title = document.createElement('h2');
+  title.textContent = h2element;
+  div.appendChild(title);
+
+  return div;
+}
+
+
+let articles = document.querySelector('.articles')
+console.log(articles);
+
+data.forEach((element) => {
+  articles.appendChild(createArticle(element.title))
+})
+
+
+
+
+
+// function creatH2(element) {
+//   let title = document.createElement('h2');
+//   title.textContent = element;
+
+//   return title;
+// }
+
+// let articles = document.querySelector('.articles')
+
+// data.forEach((element1) => {
+//   articles.appendChild(creatH2(element1.title))
+// })
