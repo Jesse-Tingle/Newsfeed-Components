@@ -113,12 +113,18 @@ const data = [
 
 */
 
-function createArticle(h2element) {
+function createArticle(h2element, pElement) {
   let div = document.createElement('div');
   div.classList.add('article');
+  
   let title = document.createElement('h2');
   title.textContent = h2element;
   div.appendChild(title);
+
+  let date = document.createElement('p');
+  date.textContent = pElement;
+  date.classList.add('date');
+  div.appendChild(date);
 
   return div;
 }
@@ -128,7 +134,8 @@ let articles = document.querySelector('.articles')
 console.log(articles);
 
 data.forEach((element) => {
-  articles.appendChild(createArticle(element.title))
+  articles.appendChild(createArticle(element.title, element.date));
+
 })
 
 
