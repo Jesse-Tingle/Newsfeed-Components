@@ -142,25 +142,12 @@ const createComponent = content => {
 
   paragraphs.forEach(p => div.appendChild(p));
 
-  // let firstParagraph = document.createElement('p');
-  // firstParagraph.textContent = firstPelement;
-  // div.appendChild(firstParagraph);
-
-  // let secondParagraph = document.createElement('p');
-  // secondParagraph.textContent = secondPelement;
-  // div.appendChild(secondParagraph);
-
-  // let thirdParagraph = document.createElement('p');
-  // thirdParagraph.textContent = thirdPelement;
-  // div.appendChild(thirdParagraph);
-
   let span = document.createElement('span');
   span.textContent = 'read more';
   span.classList.add('expandButton');
   div.appendChild(span);
 
   span.addEventListener('click', () => {
-    //alert('clicked');
     div.classList.toggle('article-open');
   })
   
