@@ -117,30 +117,42 @@ const data = [
 
 */
 
-function createArticle(h2element, pElement, firstPelement, secondPelement, thirdPelement) {
+const createComponent = content => {
   let div = document.createElement('div');
   div.classList.add('article');
   
-  let title = document.createElement('h2');
-  title.textContent = h2element;
-  div.appendChild(title);
+  let h2 = document.createElement('h2');
+  h2.textContent = content.title;
+  div.appendChild(h2);
 
   let date = document.createElement('p');
-  date.textContent = pElement;
+  date.textContent = content.date;
   date.classList.add('date');
   div.appendChild(date);
 
-  let firstParagraph = document.createElement('p');
-  firstParagraph.textContent = firstPelement;
-  div.appendChild(firstParagraph);
 
-  let secondParagraph = document.createElement('p');
-  secondParagraph.textContent = secondPelement;
-  div.appendChild(secondParagraph);
+  const paragraphs = [];
+  for(let i = 0; i < 3; i++) {
+    paragraphs.push(document.createElement('p'))
+  }
 
-  let thirdParagraph = document.createElement('p');
-  thirdParagraph.textContent = thirdPelement;
-  div.appendChild(thirdParagraph);
+  paragraphs[0].textContent = content.firstParagraph;
+  paragraphs[1].textContent = content.secondParagraph;
+  paragraphs[2].textContent = content.thirdParagraph;
+
+  paragraphs.forEach(p => div.appendChild(p));
+
+  // let firstParagraph = document.createElement('p');
+  // firstParagraph.textContent = firstPelement;
+  // div.appendChild(firstParagraph);
+
+  // let secondParagraph = document.createElement('p');
+  // secondParagraph.textContent = secondPelement;
+  // div.appendChild(secondParagraph);
+
+  // let thirdParagraph = document.createElement('p');
+  // thirdParagraph.textContent = thirdPelement;
+  // div.appendChild(thirdParagraph);
 
   let span = document.createElement('span');
   span.textContent = 'read more';
@@ -155,11 +167,6 @@ function createArticle(h2element, pElement, firstPelement, secondPelement, third
   return div;
 }
 
-
 let articles = document.querySelector('.articles')
-//console.log(articles);
 
-data.forEach((element) => {
-  articles.appendChild(createArticle(element.title, element.date, element.firstParagraph, element.secondParagraph, element.thirdParagraph));
-
-})
+data.forEach(content => articles.append(createComponent(content)));
