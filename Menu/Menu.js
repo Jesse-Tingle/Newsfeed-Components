@@ -40,13 +40,12 @@ const createMenu = array => {
 
   const ul = document.createElement('ul');
 
-  const lis = [];
   let li;
-  for(let i = 0; i < array.length; i++) {
+  const lis = array.map(text => {
     li = document.createElement('li');
-    li.textContent = array[i];
-    lis.push(li);
-  }
+    li.textContent = text;
+    return li;
+  });
 
   lis.forEach(listItem => ul.appendChild(listItem));
   div.appendChild(ul);
